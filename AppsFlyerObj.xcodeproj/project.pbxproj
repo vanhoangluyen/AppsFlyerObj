@@ -13,9 +13,12 @@
 		B815DF50202E8FAE007AF481 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B815DF4F202E8FAE007AF481 /* Assets.xcassets */; };
 		B815DF53202E8FAE007AF481 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B815DF51202E8FAE007AF481 /* LaunchScreen.storyboard */; };
 		B815DF56202E8FAE007AF481 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B815DF55202E8FAE007AF481 /* main.m */; };
+		BC0B66C6866B629B4D631E3E /* libPods-AppsFlyerObj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFF7B252ADAB44B5F7E3345 /* libPods-AppsFlyerObj.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		317AD29A8380F04A73D3D995 /* Pods-AppsFlyerObj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppsFlyerObj.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppsFlyerObj/Pods-AppsFlyerObj.debug.xcconfig"; sourceTree = "<group>"; };
+		ABFF7B252ADAB44B5F7E3345 /* libPods-AppsFlyerObj.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AppsFlyerObj.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B815DF43202E8FAE007AF481 /* AppsFlyerObj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppsFlyerObj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B815DF46202E8FAE007AF481 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B815DF47202E8FAE007AF481 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -26,6 +29,7 @@
 		B815DF52202E8FAE007AF481 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B815DF54202E8FAE007AF481 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B815DF55202E8FAE007AF481 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FD08A1BA9EC8A44C764FB83D /* Pods-AppsFlyerObj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppsFlyerObj.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppsFlyerObj/Pods-AppsFlyerObj.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +37,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC0B66C6866B629B4D631E3E /* libPods-AppsFlyerObj.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		257104AD88672B06F25647F1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ABFF7B252ADAB44B5F7E3345 /* libPods-AppsFlyerObj.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		32CE45B96CFFE022342E5C86 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				317AD29A8380F04A73D3D995 /* Pods-AppsFlyerObj.debug.xcconfig */,
+				FD08A1BA9EC8A44C764FB83D /* Pods-AppsFlyerObj.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		B815DF3A202E8FAE007AF481 = {
 			isa = PBXGroup;
 			children = (
 				B815DF45202E8FAE007AF481 /* AppsFlyerObj */,
 				B815DF44202E8FAE007AF481 /* Products */,
+				32CE45B96CFFE022342E5C86 /* Pods */,
+				257104AD88672B06F25647F1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,9 +102,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B815DF59202E8FAE007AF481 /* Build configuration list for PBXNativeTarget "AppsFlyerObj" */;
 			buildPhases = (
+				67C5E0DE809F352853ECCB8A /* [CP] Check Pods Manifest.lock */,
 				B815DF3F202E8FAE007AF481 /* Sources */,
 				B815DF40202E8FAE007AF481 /* Frameworks */,
 				B815DF41202E8FAE007AF481 /* Resources */,
+				2220583C368740AEED24C085 /* [CP] Embed Pods Frameworks */,
+				37B052B282D09346346C2617 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -136,6 +163,57 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2220583C368740AEED24C085 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AppsFlyerObj/Pods-AppsFlyerObj-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		37B052B282D09346346C2617 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AppsFlyerObj/Pods-AppsFlyerObj-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		67C5E0DE809F352853ECCB8A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AppsFlyerObj-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B815DF3F202E8FAE007AF481 /* Sources */ = {
@@ -276,6 +354,7 @@
 		};
 		B815DF5A202E8FAE007AF481 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 317AD29A8380F04A73D3D995 /* Pods-AppsFlyerObj.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -289,6 +368,7 @@
 		};
 		B815DF5B202E8FAE007AF481 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD08A1BA9EC8A44C764FB83D /* Pods-AppsFlyerObj.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

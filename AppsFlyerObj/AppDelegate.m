@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <AppsFlyerLib/AppsFlyerTracker.h>
 
 @interface AppDelegate ()
 
@@ -17,6 +18,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [AppsFlyerTracker sharedTracker].appsFlyerDevKey = @"uCX9meXuM7aCsh3Zb4Q9KD";
+    [AppsFlyerTracker sharedTracker].appleAppID = @"123456789";
+    [AppsFlyerTracker sharedTracker].delegate = self;
+    [AppsFlyerTracker sharedTracker].isDebug = true;
     return YES;
 }
 
@@ -40,12 +45,44 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [[AppsFlyerTracker sharedTracker] trackAppLaunch];
+    //Tracking In-App Events
+    [[AppsFlyerTracker sharedTracker] trackEvent: AFEventLevelAchieved withValues:@{AFEventParamLevel: @9,
+                                                                                    AFEventParamScore:@100,
+                                                                                    //Revenue In-App Event
+                                                                                    AFEventParamContentId:@"1234567",
+                                                                                    AFEventParamContentType:@"category_a",
+                                                                                    AFEventParamRevenue:@1.99,
+                                                                                    AFEventParamCurrency:@"USD"
+                                                                                    }];
+    //Get AppsFlyer Device ID
+    NSString *appsflyer = [AppsFlyerTracker sharedTracker].appleAppID;
+    //Set Customer User ID
+    [AppsFlyerTracker sharedTracker].customerUserID = @"my user ID";
+    //Set User Email
+    [[AppsFlyerTracker sharedTracker] setUserEmails:@[@"email1@domain.com", @"email2@domain.com"] withCryptType:EmailCryptTypeSHA1];
 }
 
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-
+//Tracking Deep Linking
+-(BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray * _Nullable))restorationHandler {
+    [[AppsFlyerTracker sharedTracker] continueUserActivity:userActivity restorationHandler:restorationHandler];
+    return YES;
+}
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    [[AppsFlyerTracker sharedTracker] handleOpenURL:url sourceApplication:sourceApplication withAnnotation:annotation];
+    return YES;
+}
+-(BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    [[AppsFlyerTracker sharedTracker] handleOpenUrl:url options:options];
+    return YES;
+}
+//Tracking Push Notifications
+-(void) application:(UIApplication*) application didReceiveRemoteNotification:(nonnull NSDictionary *)userInfo {
+    [[AppsFlyerTracker sharedTracker] handlePushNotification:userInfo];
+}
 
 @end

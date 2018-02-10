@@ -1,0 +1,12 @@
+PODS:
+  - AppsFlyerFramework (4.8.3)
+
+DEPENDENCIES:
+  - AppsFlyerFramework
+
+SPEC CHECKSUMS:
+  AppsFlyerFramework: 243435778bedb337fbaf45cb29715b9796d94bdb
+
+PODFILE CHECKSUM: 511aa4f9b27135339b6b2eefa1aa401eb69d4142
+
+COCOAPODS: 1.4.0
